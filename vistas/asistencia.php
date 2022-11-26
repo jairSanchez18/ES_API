@@ -2,17 +2,18 @@
 
 include '../config/conexion.php';
 
-    $id_profesor = $_POST['id_profesor'];
-    $id_estudiante = $_POST['id_estudiante'];
-    $asistencia = $_POST['asistencia'];
-    $hora_de_entrada = $_POST['hora_de_entrada'];
-    $hora_de_salida = $_POST['hora_de_salida'];
-    $porcentaje = $_POST['porcentaje'];
-    $observaciones = $_POST['observaciones'];
+    $id_profesor = $_REQUEST['id_profesor'];
+    $id_estudiante = $_REQUEST['id_estudiante'];
+    $id_horario = $_REQUEST['id_horario'];
+    $id_grupo = $_REQUEST['id_grupo'];
+    $asistencia = $_REQUEST['asistencia'];
+    $porcentaje = $_REQUEST['porcentaje'];
         
-    $consulta = "insert into lista_asist values ('".$id_profesor."','".$id_estudiante."','".$asistencia."',
-                                                 '".$hora_de_entrada."','".$hora_de_salida."','".$porcentaje."','".$observaciones."')";
-    mysqli_query($conexion,$consulta) or die (mysqli_error());
+    $consulta = "INSERT INTO lista_asist (id_profesor, id_estudiante, asistencia, porcentaje, id_grupo, id_horario)
+        VALUES ('".$id_profesor."','".$id_estudiante."','".$asistencia."',
+                '".$porcentaje."','".$id_grupo."','".$id_horario."')";
+                
+    mysqli_query($conexion,$consulta) or die ($mysql->mysqli_error());
     mysqli_close($conexion);
  
 ?>
