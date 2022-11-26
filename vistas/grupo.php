@@ -3,11 +3,9 @@
 //DEBEMOS INCLUID LA CONEXION PARA PODER UTILIZAR LA VARIABLE PDO
 include '../config/conexion.php';
 $id_profesor = $_GET['id'];
-$id_grupo = $_GET['id_grupo'];
 
 ////REALIZAMOS LA CONSULTA QUE DESEAMOS
-$consulta = "SELECT DISTINCT h.id as 'id_horario', h.salon FROM horario as h
-join grupos as g WHERE h.id_profesor='$id_profesor' and h.salon != '-' and h.id_grupo = '$id_grupo' group by h.dia ASC";
+$consulta = "SELECT id, grupo FROM grupos WHERE id_profesor= '$id_profesor'";
 
 //OBTENEMOS LA CONSULTA
 $resultado = $conexion->query($consulta);

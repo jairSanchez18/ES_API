@@ -4,10 +4,10 @@
 include '../config/conexion.php';
 
 //REALIZAMOS LA CONSULTA QUE DESEAMOS
-$consulta = "SELECT * FROM profesor";
+$consulta = "SELECT id, cedula FROM profesor";
 
 //OBTENEMOS LA CONSULTA
-$resultado = $pdo->query($consulta);
+$resultado = $conexion->query($consulta);
 
 //RECORREMOS EL SELECT PARA TRAER TODOS LOS DATOS NECESARIOS
 while($fila = $resultado->fetch_array()){
